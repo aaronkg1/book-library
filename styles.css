@@ -134,6 +134,16 @@ font-family: 'Catamaran', sans-serif;
     font-size: 30px;
     padding: 10px;
     height: 40px;
+    outline: none;
+}
+
+
+.form input:valid {
+    border: 2px solid green;
+}
+
+.form input:focus {
+    border: 2px solid rgb(7, 185, 250);
 }
 
 .info {
