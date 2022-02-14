@@ -51,25 +51,40 @@ font-family: 'Catamaran', sans-serif;
 
 .container {
     display: grid;
-    grid-template-columns: 3fr 1fr;
-    grid-template-rows: 2fr 2fr 4fr;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 2fr 2fr 2fr 2fr;
     height: 100vh;
     width: 100vw;
 }
 
+.popup {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    background-color: rgba(108, 110, 111, 0.536);
+    grid-column: 1 / 3;
+    grid-row: 1 / 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: -1;
+}
+
+
 .header {
  grid-column: 1 / 3;
  grid-row: 1 / 2;
- background-color: antiquewhite;
+ background-color: rgb(245, 245, 241);
  display: flex;
  justify-content: center;
  align-items: center;
 }
 
 .library {
-    grid-row: 2 / 4;
-    grid-column: 1 / 2;
-    background-color: rgb(215, 195, 188);
+    grid-row: 2 / 5;
+    grid-column: 2 / 3;
+    background-color: beige;
     padding: 30px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
@@ -79,7 +94,7 @@ font-family: 'Catamaran', sans-serif;
 }
 
 .controls {
-    grid-column: 2 / 3;
+    grid-column: 1 / 2;
     grid-row: 2 / 3;
     background-color: beige;
     display: flex;
@@ -87,20 +102,77 @@ font-family: 'Catamaran', sans-serif;
     align-items: center;
 }
 
+.info-container  {
+    grid-column: 1 / 2;
+    grid-row: 3 / 5;
+    background-color: beige;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+    font-family: 'Catamaran', sans-serif;
+    
+}
+
 .form {
-    grid-column: 2 / 3;
-    grid-row: 3 / 4;
+    
     background-color: beige;
     display: flex;
     justify-content: center;
     align-items: baseline;
     font-family: 'Playfair Display', serif;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.info {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.tooltip {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.tooltiptext  {
+    visibility: hidden;
+    color: black;
+    width: 200px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    position: relative;
+    left: ;
+    top: 20px;
+    z-index: 1;
+    
+
+
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+.align {
+    display: flex;
+    justify-items: center;
+    justify-items: center;
+    gap: 10px;
 }
 
 ul {
     display: flex;
     flex-direction: column;
-    gap: 2em;
+    gap: 1em;
 }
 
 
@@ -166,8 +238,8 @@ border-bottom-right-radius: 20px;
 gap: 20px;
 }
 
-.hidden {
-    visibility: hidden;
+.visible {
+    z-index: 1;
 }
 
 
@@ -221,3 +293,4 @@ gap: 20px;
 .material-icons-outlined:hover {
     cursor: pointer;
 }
+

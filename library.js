@@ -5,8 +5,10 @@ const bookPages = document.querySelector("#pages");
 const bookRead = document.querySelector("#has-read")
 const notRead = document.querySelector('#not-read');
 const addBookButton = document.querySelector("#add-book");
-const library = document.querySelector('.library')
-const newBook = document.querySelector('#new-book')
+const library = document.querySelector('.library');
+const newBook = document.querySelector('#new-book');
+const formWindow = document.querySelector('.popup');
+const returnButton = document.querySelector('#return');
 
 const myLibrary = [];
 
@@ -37,7 +39,7 @@ function addBookToLibrary() {
 
     myLibrary.push(new Book(`${bookTitle.value}`, `${bookAuthor.value}`, `${bookPages.value}`, read));
     updateLibary();
-    form.classList.add('hidden');
+    formWindow.classList.toggle('visible');
     form.reset();
 }
 }
@@ -45,7 +47,7 @@ function addBookToLibrary() {
 addBookButton.addEventListener("click",addBookToLibrary);
 
 newBook.addEventListener('click', () => {
-    form.classList.toggle('hidden');
+    formWindow.classList.toggle('visible');
 })
 
 
@@ -140,6 +142,10 @@ function updateLibary() {
 
 })
 }
+
+returnButton.addEventListener('click', () => {
+    formWindow.classList.toggle('visible');
+});
 
 myLibrary.push(new Book("Moby Dick", "Herman Melville", "427", "No"));
 updateLibary();
