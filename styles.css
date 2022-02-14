@@ -87,7 +87,7 @@ font-family: 'Catamaran', sans-serif;
     background-color: beige;
     padding: 30px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(500px, 500px));
     grid-auto-rows: minmax(250px, 300px);
     gap: 30px;
     overflow: scroll;
