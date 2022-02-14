@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Project</title>
+    <script src="library.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@500&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+</head>
+<body>
+   <div class="container">
+        <div class="header">
+            <h1>My Library</h1>
+
+        </div>
+        <div class="library">
+            
+        </div>
+        <div class="controls">
+            <button id="new-book" class="button-27">New Book</button>
+        </div>
+        <div class="form">
+            <form action="" class="hidden">
+                <ul>
+                <li>
+                    <label for="title">Book Title: </label>
+                    <input type="text" name="title" id="title" required>
+                </li>
+                <li>
+                    <label for="author">Book Author: </label>
+                    <input type="text" name="author" id="author" required>
+                </li>
+                <li>
+                    <label for="pages">Number Of Pages: </label>
+                    <input type="tel" name="pages" id="pages">
+                </li>
+                <li>
+                    <fieldset id="read">
+                        <label for="has-read">Has Read</label>
+                        <input type="radio" name="read" id="has-read" value="Has Read" checked>
+                        <label for="not-read">Not Read</label>
+                        <input type="radio" name="read" id="not-read" value="Has Not Read">
+                    </fieldset>
+                </li>
+                <li>
+                    <button id="add-book" type="button" class="button-27">Add To Library</button>
+                </li>
+                </ul>
+
+                
+            </form>
+        </div>
+   </div>
+</body>
+</html>
