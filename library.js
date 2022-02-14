@@ -29,6 +29,11 @@ function addBookToLibrary() {
         return
     }
 
+    else if (bookPages.value < 1) { 
+        alert("Book length must be longer than 1");
+        return
+    }
+
    else {
 
     if (bookRead.checked) {

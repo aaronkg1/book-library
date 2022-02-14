@@ -122,8 +122,17 @@ font-family: 'Catamaran', sans-serif;
     justify-content: center;
     align-items: baseline;
     font-family: 'Playfair Display', serif;
-    padding: 20px;
+    padding: 50px;
     border-radius: 20px;
+    font-size: 30px;
+}
+
+.form input {
+    border: none;
+    border-radius: 20px;
+    font-size: 30px;
+    padding: 10px;
+    height: 40px;
 }
 
 .info {
