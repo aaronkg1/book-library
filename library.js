@@ -119,9 +119,9 @@ function updateLibary() {
 
             removeButton.classList.add('material-icons-outlined');
             removeButton.textContent = 'delete';
-            readButton.classList.add('material-icons-outlined'); 
+            readButton.classList.add('material-icons-outlined');
             readButton.textContent = 'auto_stories';
-            
+
 
             library.appendChild(bookContainer);
 
