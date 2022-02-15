@@ -197,7 +197,7 @@ ul {
 
 
 .book {
-    border: solid rgb(228, 6, 6) 10px;
+    border: solid rgb(228, 6, 6) 5px;
     display: grid;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     align-content: center;
