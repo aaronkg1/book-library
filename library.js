@@ -12,7 +12,7 @@ const returnButton = document.querySelector('#return');
 
 const myLibrary = [];
 
-function Book(title, author, pages, read) {
+const Book = function(title, author, pages, read) {
     this.title = title
     this.author = author
     this.pages = pages
