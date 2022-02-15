@@ -197,13 +197,12 @@ ul {
 
 
 .book {
-    border: solid rgb(228, 6, 6) 5px;
+    border-left: solid rgb(228, 6, 6) 10px;
     display: grid;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     align-content: center;
     justify-items:flex-start;
-    padding:10px;
-    border-radius: 20px;
+    border-radius: 10px;
     font-family: 'Playfair Display', serif;
 }
 

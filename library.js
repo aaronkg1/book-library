@@ -22,16 +22,6 @@ function Book(title, author, pages, read) {
     }
 }
 
-Book.prototype.toggleRead = function() {
-   if (this.read === "Yes") {
-       this.read = "No"
-   }
-
-   else if (this.read === "No") {
-       this.read = "Yes"
-   }
-};
-
 
 function addBookToLibrary() {
    
