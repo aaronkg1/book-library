@@ -17,40 +17,47 @@ function Book(title, author, pages, read) {
     this.author = author
     this.pages = pages
     this.read = read
-    this.info = function() {
-       return title + " by " + author + ", " + pages + " pages," + read;
+    this.info = function () {
+        return title + " by " + author + ", " + pages + " pages," + read;
+    }
+    this.toggleRead = function () {
+        if (this.read === "Yes") {
+            this.read = "No"
+        }
+
+        else this.read = "Yes";
     }
 }
 
 
 function addBookToLibrary() {
-   
+
     if (bookTitle.value.length < 1 || bookAuthor.value.length < 1) {
         alert('Missing fields');
         return
     }
 
-    else if (bookPages.value < 1 || bookPages.value === "") { 
+    else if (bookPages.value < 1 || bookPages.value === "") {
         alert("Book length must be longer than 1");
         return
     }
 
-   else {
+    else {
 
-    if (bookRead.checked) {
-        read = "Yes"
+        if (bookRead.checked) {
+            read = "Yes"
+        }
+
+        else read = "No"
+
+        myLibrary.push(new Book(`${bookTitle.value}`, `${bookAuthor.value}`, `${bookPages.value}`, read));
+        updateLibary();
+        formWindow.classList.toggle('visible');
+        form.reset();
     }
-
-    else read = "No"
-
-    myLibrary.push(new Book(`${bookTitle.value}`, `${bookAuthor.value}`, `${bookPages.value}`, read));
-    updateLibary();
-    formWindow.classList.toggle('visible');
-    form.reset();
-}
 }
 
-addBookButton.addEventListener("click",addBookToLibrary);
+addBookButton.addEventListener("click", addBookToLibrary);
 
 newBook.addEventListener('click', () => {
     formWindow.classList.toggle('visible');
@@ -67,86 +74,74 @@ function updateLibary() {
 
         else {
 
-        let bookContainer = document.createElement('div');
-        bookContainer.classList.add('book');
-        let placeBookTitle = document.createElement('h2');
-        let placeAuthor = document.createElement('p');
-        let placePages = document.createElement('p');
-        let placeRead = document.createElement('p');
-        let removeButton = document.createElement('span')
-        let readButton = document.createElement('div')
-        let bookSection1 = document.createElement('div');
-        let bookSection2 = document.createElement('div');
-        let bookSection3 = document.createElement('div');
-        let bookSection4 = document.createElement('div');
-        let bookSection5 = document.createElement('div');
+            let bookContainer = document.createElement('div');
+            bookContainer.classList.add('book');
+            let placeBookTitle = document.createElement('h2');
+            let placeAuthor = document.createElement('p');
+            let placePages = document.createElement('p');
+            let placeRead = document.createElement('p');
+            let removeButton = document.createElement('span')
+            let readButton = document.createElement('div')
+            let bookSection1 = document.createElement('div');
+            let bookSection2 = document.createElement('div');
+            let bookSection3 = document.createElement('div');
+            let bookSection4 = document.createElement('div');
+            let bookSection5 = document.createElement('div');
 
-        bookSection1.classList.add('section');
-        bookSection2.classList.add('section');
-        bookSection3.classList.add('section');
-        bookSection4.classList.add('section');
-        bookSection5.classList.add('section');
-        
-        bookContainer.appendChild(bookSection1);
-        bookSection1.appendChild(placeBookTitle);
-        bookContainer.appendChild(bookSection2)
-        bookSection2.appendChild(placeAuthor);
-        bookContainer.appendChild(bookSection3);
-        bookSection3.appendChild(placePages);
-        bookContainer.appendChild(bookSection4);
-        bookSection4.appendChild(placeRead);
-        bookContainer.appendChild(bookSection5);
-        bookSection5.appendChild(removeButton);
-        bookSection5.appendChild(readButton);
-        
+            bookSection1.classList.add('section');
+            bookSection2.classList.add('section');
+            bookSection3.classList.add('section');
+            bookSection4.classList.add('section');
+            bookSection5.classList.add('section');
 
-        if (book.read === "Yes") {
-            bookContainer.classList.add('read');
-        }
-
-        placeBookTitle.textContent = `Title: ${book.title}`;
-        placeAuthor.textContent = `Author: ${book.author}`;
-        placePages.textContent = `Pages: ${book.pages}`;
-        placeRead.textContent = `Read: ${book.read}`;
+            bookContainer.appendChild(bookSection1);
+            bookSection1.appendChild(placeBookTitle);
+            bookContainer.appendChild(bookSection2)
+            bookSection2.appendChild(placeAuthor);
+            bookContainer.appendChild(bookSection3);
+            bookSection3.appendChild(placePages);
+            bookContainer.appendChild(bookSection4);
+            bookSection4.appendChild(placeRead);
+            bookContainer.appendChild(bookSection5);
+            bookSection5.appendChild(removeButton);
+            bookSection5.appendChild(readButton);
 
 
-        removeButton.classList.add('material-icons-outlined');
-        removeButton.textContent = 'delete';
-        readButton.classList.add('material-icons-outlined');
-        if (book.read === "Yes") {
-            readButton.textContent = 'auto_stories';
-        }
-
-        else readButton.textContent = 'clear';
-
-        library.appendChild(bookContainer);
-
-        book.addedToLibrary = true;
-        bookContainer.index = myLibrary.indexOf(book);
-
-        removeButton.addEventListener('click', () => {
-            myLibrary.splice(bookContainer.index, 1);
-            library.removeChild(bookContainer);
-        })
-
-        readButton.addEventListener('click', () => {
-            if (book.read === 'No') {
-                book.read = "Yes";
-                placeRead.textContent = "Read: Yes"
-                readButton.textContent = 'auto_stories';
+            if (book.read === "Yes") {
                 bookContainer.classList.add('read');
             }
 
-            else if (book.read ==='Yes') {
-                book.read = "No";
-                placeRead.textContent = "Read: No"
-                readButton.textContent = 'clear';
-                bookContainer.classList.remove('read');
-            }
-        })
-    }
+            placeBookTitle.textContent = `Title: ${book.title}`;
+            placeAuthor.textContent = `Author: ${book.author}`;
+            placePages.textContent = `Pages: ${book.pages}`;
+            placeRead.textContent = `Read: ${book.read}`;
 
-})
+
+            removeButton.classList.add('material-icons-outlined');
+            removeButton.textContent = 'delete';
+            readButton.classList.add('material-icons-outlined'); 
+            readButton.textContent = 'auto_stories';
+            
+
+            library.appendChild(bookContainer);
+
+            book.addedToLibrary = true;
+            bookContainer.index = myLibrary.indexOf(book);
+
+            removeButton.addEventListener('click', () => {
+                myLibrary.splice(bookContainer.index, 1);
+                library.removeChild(bookContainer);
+            })
+
+
+            readButton.addEventListener('click', () => {
+                book.toggleRead();
+                placeRead.textContent = `Read: ${book.read}`;
+                bookContainer.classList.toggle('read');
+            })
+        }
+
+    })
 }
 
 returnButton.addEventListener('click', () => {
