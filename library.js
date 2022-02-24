@@ -164,14 +164,3 @@ const libraryDisplay = (() => {
 })();
 
 
-
-
-
-
-
-// myLibrary.push(new Book("Moby Dick", "Herman Melville", "427", "No"));
-// updateLibary();
-
-
-
-
