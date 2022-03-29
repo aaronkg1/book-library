@@ -50,39 +50,56 @@ const libraryDisplay = (() => {
     const myLibrary = new library('myLibrary');
 
         addBookButton.addEventListener("click", () => {
-       addBook(bookTitle, bookAuthor, bookPages, bookRead);
-        updateLibary();
-        formWindow.classList.toggle('visible');
-        form.reset();
+       addBook();
         })
+
 
         newBook.addEventListener('click', () => {
             formWindow.classList.toggle('visible');
         })
         returnButton.addEventListener('click', () => {
             formWindow.classList.toggle('visible');
+            form.reset();
         });
 
+    const checkFormValidity = () => {
+        bookTitle.checkValidity();
+        bookTitle.setCustomValidity('');
+
+        if (!bookTitle.validity.valid) {
+            bookTitle.setCustomValidity('Book Title Required');
+            bookTitle.reportValidity();
+            return false
+        }
+        bookAuthor.checkValidity();
+        bookAuthor.setCustomValidity('');
+            if (!bookAuthor.validity.valid) {
+                bookAuthor.setCustomValidity('Book Author Required');
+                bookAuthor.reportValidity();
+                return false
+            }
+
+        bookPages.checkValidity();
+        bookPages.setCustomValidity('');    
+            if (!bookPages.validity.valid) {
+                bookPages.setCustomValidity('Number of pages required');
+                bookPages.reportValidity();
+                return false
+            }    
+
+            else return true
+}
+
     const addBook = () => {
-        if (bookTitle.value.length < 1 || bookAuthor.value.length < 1) {
-            alert('Missing fields');
-            return
-        }
-    
-        else if (bookPages.value < 1 || bookPages.value === "") {
-            alert("Book length must be longer than 1");
-            return
-        }
-    
-        else {
+        if (checkFormValidity()) {
             if (bookRead.checked) {
                 read = "Yes"
             }
             else read = "No"
             myLibrary.addBookToLibrary(`${bookTitle.value}`, `${bookAuthor.value}`, `${bookPages.value}`, read);
-            // updateLibary();
-            // formWindow.classList.toggle('visible');
-            // form.reset();
+            updateLibary();
+            formWindow.classList.toggle('visible');
+            form.reset();
         }
     }
 

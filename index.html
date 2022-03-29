@@ -32,11 +32,8 @@
                 <span class="tooltiptext">This is a simple book library application I designed. Try adding a new book or changing the read status of a book</span>
             </div>
         </div>
-            <!-- <div class="tooltiptext">
-                    
-                    
-            </div> -->
-        </div>
+           
+    </div>
        
    </div>
 
@@ -46,11 +43,11 @@
             <ul>
             <li>
                 <label for="title">Book Title: </label>
-                <input type="text" name="title" id="title" required>
+                <input type="text" name="title" id="title" required pattern=".{3,}">
             </li>
             <li>
                 <label for="author">Book Author: </label>
-                <input type="text" name="author" id="author" required>
+                <input type="text" name="author" id="author" required pattern=".{3,}">
             </li>
             <li>
                 <label for="pages">Number Of Pages: </label>
