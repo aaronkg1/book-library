@@ -16,6 +16,7 @@ import {
   updateDoc,
   onSnapshot,
   query,
+  deleteDoc,
 } from "firebase/firestore";
 import "./style.css";
 
@@ -255,11 +256,10 @@ const libraryDisplay = () => {
 
       // bookContainer.index = myLibrary.library.indexOf(book);
 
-      // removeButton.addEventListener("click", () => {
-      //   myLibrary.removeBookFromLibrary(bookContainer.index);
-      //   libraryContainer.removeChild(bookContainer);
-      //   updateLibary();
-      // });
+      removeButton.addEventListener("click", async () => {
+        await deleteDoc(docRef);
+        updateLibary();
+      });
 
       readButton.addEventListener("click", async () => {
         await setDoc(docRef, {
